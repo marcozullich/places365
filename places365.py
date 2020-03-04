@@ -35,7 +35,7 @@ def get_dataloaders(pre_root, batch_train, batch_test=None, root_train="data_256
 
 
     trainset = Places365(os.path.join(pre_root, root_train), transform=transforms_train)
-    testset = Places365(os.path.join(pre_root, root_test), transform=transforms_test)
+    testset = Places365(os.path.join(pre_root, root_test), transform=transforms_test, txt_file="places365_val.txt")
 
     trainloader = DataLoader(trainset, batch_size=batch_train, shuffle=shuffle_train, **kwargs)
     testloader = DataLoader(testset,  batch_size=batch_test, shuffle=False, **kwargs)
